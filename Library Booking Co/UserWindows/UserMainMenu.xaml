@@ -1,0 +1,118 @@
+﻿<Window x:Class="Library_Booking_Co.UserWindows.UserMainMenu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Library_Booking_Co.UserWindows"
+        mc:Ignorable="d"
+        Title="UserMainPage" Height="450" Width="800">
+    <Grid>
+        <Image Margin="0,0,-0.444,-0.333" Opacity="0.15" Stretch="Fill">
+            <Image.Source>
+                <BitmapImage  UriSource="D:\Library System April 2023\Library Booking Co\Library Booking Co\bin\Debug\gradient_green_down.png" />
+            </Image.Source>
+        </Image>
+        <Button Content="SEARCH" x:Name="btnSearch" Margin="84,92,443.556,232.667" BorderThickness="0" >
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Background" >
+                        <Setter.Value>
+                            <LinearGradientBrush  StartPoint="0,0" EndPoint="0,1" Opacity="0.6">
+                                <GradientStop Color="#7cb342" Offset="0"/>
+                                <GradientStop Color="#aed581" Offset="0.33"/>
+                                <GradientStop Color="#dcedc8" Offset="0.66"/>
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="20"/>
+                </Style>
+            </Button.Resources>
+            <Button.Effect>
+                <DropShadowEffect ShadowDepth="5" Color="DarkGreen" Opacity=".1" RenderingBias="Performance"  />
+            </Button.Effect>
+
+        </Button>
+        <Button Content="PROFILE" x:Name="btnProfile" Margin="84,248,443.556,76.667" BorderThickness="0">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="20"/>
+                </Style>
+            </Button.Resources>
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" >
+                        <Setter.Value>
+                            <LinearGradientBrush  StartPoint="0,0" EndPoint="0,1" Opacity="0.6">
+                                <GradientStop Color="#7cb342" Offset="0"/>
+                                <GradientStop Color="#aed581" Offset="0.33"/>
+                                <GradientStop Color="#dcedc8" Offset="0.66"/>
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+            <Button.Effect>
+                <DropShadowEffect ShadowDepth="5" Color="DarkGreen" Opacity=".1" RenderingBias="Performance"  />
+            </Button.Effect>
+
+        </Button>
+        <Button Content="BOOKS " x:Name="btnBookManagement" Margin="448,92,79.556,232.667" BorderThickness="0" Click="btnBookManagement_Click" >
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="20"/>
+                </Style>
+            </Button.Resources>
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" >
+                        <Setter.Value>
+                            <LinearGradientBrush  StartPoint="0,0" EndPoint="0,1" Opacity="0.6">
+                                <GradientStop Color="#7cb342" Offset="0"/>
+                                <GradientStop Color="#aed581" Offset="0.33"/>
+                                <GradientStop Color="#dcedc8" Offset="0.66"/>
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+            <Button.Effect>
+                <DropShadowEffect ShadowDepth="5" Color="DarkGreen" Opacity=".1" RenderingBias="Performance"  />
+            </Button.Effect>
+
+        </Button>
+        <Button Content="Button" x:Name="btnTBC" Margin="448,248,79.556,76.667" BorderThickness="0">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="20"/>
+                </Style>
+            </Button.Resources>
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" >
+                        <Setter.Value>
+                            <LinearGradientBrush  StartPoint="0,0" EndPoint="0,1" Opacity="0.6">
+                                <GradientStop Color="#7cb342" Offset="0"/>
+                                <GradientStop Color="#aed581" Offset="0.33"/>
+                                <GradientStop Color="#dcedc8" Offset="0.66"/>
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+            <Button.Effect>
+                <DropShadowEffect ShadowDepth="5" Color="DarkGreen" Opacity=".1" RenderingBias="Performance"  />
+            </Button.Effect>
+        </Button>
+        <Button x:Name="btnLogOut" Click="OnClick5" BorderThickness="0" RenderTransformOrigin="1.26,-0.426" Margin="735,10,-0.444,359.667">
+            <Image Source="D:\Library System April 2023\Library Booking Co\Library Booking Co\bin\Debug\LogOut.png"></Image>
+            <Button.Background>
+                <SolidColorBrush Opacity="0.0"/>
+            </Button.Background>
+        </Button>
+
+    </Grid>
+</Window>

@@ -1,0 +1,85 @@
+﻿<Window x:Class="Library_Booking_Co.UserWindows.BookManagementUsers"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Library_Booking_Co.UserWindows"
+        mc:Ignorable="d"
+        Title="BookManagementUsers" Height="450" Width="800">
+    <Grid>
+        <TabControl TabStripPlacement="Left" Margin="0,0,-0.444,-0.333" SelectionChanged="TabControl_SelectionChanged" >
+            <TabItem Header="Books" HorizontalAlignment="Left" Margin="-2,-2,0,-12" Width="164" Height="38" VerticalAlignment="Top">
+                <Grid Background="White"/>
+            </TabItem>
+            <TabItem Header="Borrow" Height="38" Margin="-2,-2.222,0.444,-11.778" VerticalAlignment="Top">
+                <Grid Background="White">
+                    <Image Margin="0,0,-0.444,-0.333" Opacity="0.15" Stretch="Fill">
+                        <Image.Source>
+                            <BitmapImage  UriSource="D:\Library System April 2023\Library Booking Co\Library Booking Co\bin\Debug\gradient_green_down.png" />
+                        </Image.Source>
+                    </Image>
+                    <TextBox Height="33" Margin="176,143,162,0" x:Name="txtBorrowBook" VerticalAlignment="Top" BorderBrush="DarkSlateGray" BorderThickness="1" AcceptsReturn="False">
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="7"/>
+                            </Style>
+                        </TextBox.Resources>
+                        <TextBox.Effect>
+                            <DropShadowEffect ShadowDepth="5" Color="DarkGreen" Opacity=".4" RenderingBias="Performance"  />
+                        </TextBox.Effect>
+                    </TextBox>
+                    <Button x:Name="btnBorrowBook" Content="Borrow" HorizontalAlignment="Left" Margin="255,204,0,0" VerticalAlignment="Top" Width="117" Height="38" BorderBrush="DarkSlateGray" Background="DarkSlateGray" BorderThickness="0" Foreground="White" Click="btnBorrowBook_Click">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                        <Button.Effect>
+                            <DropShadowEffect ShadowDepth="5" Color="DarkGreen" Opacity=".4" RenderingBias="Performance"  />
+                        </Button.Effect>
+
+                    </Button>
+                    <Label Content="Scan or enter Book ID" HorizontalAlignment="Left" Height="28" Margin="176,110,0,0" VerticalAlignment="Top" Width="146"/>
+                </Grid>
+
+            </TabItem>
+            <TabItem Header="Return" Height="38" Margin="-2,-2,0.444,-12" VerticalAlignment="Top" >
+                <Grid Background="White">
+                    <Image Margin="0,0,-0.444,-0.333" Opacity="0.15" Stretch="Fill">
+                        <Image.Source>
+                            <BitmapImage  UriSource="D:\Library System April 2023\Library Booking Co\Library Booking Co\bin\Debug\gradient_green_up.png" />
+                        </Image.Source>
+                    </Image>
+
+                    <TextBox Height="33" Margin="176,143,162,0" x:Name="txtReturnBook" VerticalAlignment="Top" BorderBrush="DarkSlateGray" BorderThickness="1" AcceptsReturn="False">
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="7"/>
+                            </Style>
+                        </TextBox.Resources>
+                        <TextBox.Effect>
+                            <DropShadowEffect ShadowDepth="5" Color="DarkGreen" Opacity=".4" RenderingBias="Performance" />
+                        </TextBox.Effect>
+                    </TextBox>
+                    <Button x:Name="btnReturnBook" Content="Return" HorizontalAlignment="Left" Margin="255,204,0,0" VerticalAlignment="Top" Width="117" Height="38" BorderBrush="DarkSlateGray" Background="DarkSlateGray" BorderThickness="0" Foreground="White" Click="btnReturnBook_Click">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                        <Button.Effect>
+                            <DropShadowEffect ShadowDepth="5" Color="DarkGreen" Opacity=".4" RenderingBias="Performance"  />
+                        </Button.Effect>
+                    </Button>
+                    <Label Content="Scan or enter Book ID" HorizontalAlignment="Left" Height="28" Margin="176,110,0,0" VerticalAlignment="Top" Width="146"/>
+
+                </Grid>
+            </TabItem>
+        
+            <TabItem Header="Renew" Height="38" Margin="-2,-1.778,0.444,-12.222" VerticalAlignment="Top" >
+                <Grid Background="White"/>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>
