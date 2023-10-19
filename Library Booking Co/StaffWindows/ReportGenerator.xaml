@@ -1,0 +1,63 @@
+﻿<Window x:Class="Library_Booking_Co.StaffWindows.ReportGenerator"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Library_Booking_Co.StaffWindows"
+        mc:Ignorable="d"
+        Title="ReportGenerator" Width="{x:Static SystemParameters.PrimaryScreenWidth}"  
+        Height="{x:Static SystemParameters.PrimaryScreenHeight}"  WindowState="Maximized">
+    <Grid>
+        <Image Margin="0,0,-0.444,-0.333" Opacity="0.15" Stretch="Fill">
+            <Image.Source>
+                <BitmapImage  UriSource="D:\Library System April 2023\Library Booking Co\Library Booking Co\bin\Debug\gradient_green_down.png" />
+            </Image.Source>
+        </Image>
+        <Button x:Name="btnViewOverdue" Content="View Overdue Books" HorizontalAlignment="Left" Margin="84,152,0,0" VerticalAlignment="Top" Width="212" Height="56" BorderBrush="#0c2205" Background="#0c2205" BorderThickness="0" Foreground="White" FontSize="15" Click="btnViewOverdue_Click" >
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+            <Button.Effect>
+                <DropShadowEffect ShadowDepth="5" Color="DarkGreen" Opacity=".4" RenderingBias="Performance"  />
+            </Button.Effect>
+        </Button>
+        <Button x:Name="btnAddViewLoaned" Content="View Loaned Books" HorizontalAlignment="Left" Margin="84,246,0,0" VerticalAlignment="Top" Width="212" Height="56" BorderBrush="#0c2205" Background="#0c2205" BorderThickness="0" Foreground="White" FontSize="15" Click="btnAddViewLoaned_Click" >
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+            <Button.Effect>
+                <DropShadowEffect ShadowDepth="5" Color="DarkGreen" Opacity=".4" RenderingBias="Performance"  />
+            </Button.Effect>
+        </Button>
+        <Button x:Name="btnMostPopular" Content="View Most Popular Books" HorizontalAlignment="Left" Margin="84,343,0,0" VerticalAlignment="Top" Width="212" Height="56" BorderBrush="#0c2205" Background="#0c2205" BorderThickness="0" Foreground="White" FontSize="15" Click="btnMostPopular_Click">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+            <Button.Effect>
+                <DropShadowEffect ShadowDepth="5" Color="DarkGreen" Opacity=".4" RenderingBias="Performance"  />
+            </Button.Effect>
+        </Button>
+        <DataGrid x:Name="dgReportViewer" HorizontalAlignment="Left" Height="625" Margin="401,66,0,0" VerticalAlignment="Top" Width="705" Background="White" BorderBrush="DarkGreen" ColumnWidth="*" IsReadOnly="True"/>
+        <Label Content="Reports" HorizontalAlignment="Left" Height="71" Margin="10,10,0,0" VerticalAlignment="Top" Width="330" FontSize="40" FontFamily="Microsoft JhengHei UI Light"/>
+        <DataGrid x:Name="dgReportViewerOverdue" HorizontalAlignment="Left" Height="625" Margin="401,66,0,0" VerticalAlignment="Top" Width="705" Background="White" BorderBrush="DarkGreen" ColumnWidth="*" IsReadOnly="True" />
+        <Button x:Name="btnHome" HorizontalAlignment="Left" Height="69" Margin="17,628,0,0" VerticalAlignment="Top" Width="75" BorderThickness="0" Click="btnHome_Click">
+            <Image Source="D:\Library System April 2023\Library Booking Co\Library Booking Co\bin\Debug\Home.png"></Image>
+            <Button.Background>
+                <SolidColorBrush Opacity="0.0"/>
+            </Button.Background>
+            <Button.ToolTip>
+                <ToolTip>
+                    <StackPanel>
+                        <Label Content="Home Page"/>
+                    </StackPanel>
+                </ToolTip>
+            </Button.ToolTip>
+        </Button>
+    </Grid>
+</Window>

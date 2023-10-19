@@ -35,6 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -57,17 +58,69 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BookManagement\Book.cs" />
     <Compile Include="BookManagement\BorrowedBook.cs" />
+    <Compile Include="BookManagement\DatagridControls.cs" />
+    <Compile Include="BookManagement\DisplayBorrowed.cs" />
+    <Compile Include="BookManagement\DisplayReserved.cs" />
+    <Compile Include="BookManagement\idGen.cs" />
     <Compile Include="BookManagement\ManageBooks.cs" />
+    <Compile Include="BookManagement\xmlController.cs" />
     <Compile Include="BookManagement\XmlController_BorrowBooks.cs" />
     <Compile Include="ErrorValidation\LogInValidation.cs" />
+    <Compile Include="FineManagement.cs" />
     <Compile Include="GlobalUserID.cs" />
+    <Compile Include="PopupWindows\EditAddress.xaml.cs">
+      <DependentUpon>EditAddress.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PopupWindows\EditEmail.xaml.cs">
+      <DependentUpon>EditEmail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PopupWindows\EditPassword.xaml.cs">
+      <DependentUpon>EditPassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PopupWindows\EditPhone.xaml.cs">
+      <DependentUpon>EditPhone.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PopupWindows\ManageFines.xaml.cs">
+      <DependentUpon>ManageFines.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StaffGlobalUserID.cs" />
+    <Compile Include="StaffWindows\BookManagementStaff.xaml.cs">
+      <DependentUpon>BookManagementStaff.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="StaffWindows\MainMenuStaff.xaml.cs">
+      <DependentUpon>MainMenuStaff.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StaffWindows\ReportGenerator.xaml.cs">
+      <DependentUpon>ReportGenerator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StaffWindows\StaffUserFines.xaml.cs">
+      <DependentUpon>StaffUserFines.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StaffWindows\UserManagementStaff.xaml.cs">
+      <DependentUpon>UserManagementStaff.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserManagement\DisplayFines.cs" />
+    <Compile Include="UserManagement\PasswordGen.cs" />
+    <Compile Include="UserManagement\Staff.cs" />
+    <Compile Include="UserManagement\StaffIDGen.cs" />
+    <Compile Include="UserManagement\userIDgen.cs" />
+    <Compile Include="UserManagement\Users.cs" />
     <Compile Include="UserWindows\BookManagementUsers.xaml.cs">
       <DependentUpon>BookManagementUsers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserWindows\BookSearchUser.xaml.cs">
+      <DependentUpon>BookSearchUser.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserWindows\UserMainMenu.xaml.cs">
       <DependentUpon>UserMainMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserWindows\UserProfile.xaml.cs">
+      <DependentUpon>UserProfile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserManagement\xmlControllerUser.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -88,11 +141,59 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="PopupWindows\EditAddress.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PopupWindows\EditEmail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PopupWindows\EditPassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PopupWindows\EditPhone.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PopupWindows\ManageFines.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StaffWindows\BookManagementStaff.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="StaffWindows\MainMenuStaff.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StaffWindows\ReportGenerator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StaffWindows\StaffUserFines.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StaffWindows\UserManagementStaff.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="UserWindows\BookManagementUsers.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserWindows\BookSearchUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserWindows\UserMainMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserWindows\UserProfile.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -128,8 +229,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="StaffWindows\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

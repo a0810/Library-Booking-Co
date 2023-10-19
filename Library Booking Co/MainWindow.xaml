@@ -5,42 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Library_Booking_Co"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        
+        Title="MainWindow" Width="{x:Static SystemParameters.PrimaryScreenWidth}"  
+        Height="{x:Static SystemParameters.PrimaryScreenHeight}"  WindowState="Maximized">
     <Grid>
-        <Image Margin="-83,0,83.556,-0.333" Opacity="0.75">
+        <Image Margin="-83,0,83.556,-0.444" Opacity="0.75" HorizontalAlignment="Right" Width="1115">
             <Image.Source>
                 <BitmapImage  UriSource="D:\Library System April 2023\Library Booking Co\Library Booking Co\bin\Debug\bookstackbg.png" />
             </Image.Source>
         </Image>
 
-        <TextBox Height="29" Margin="394,140,26.556,0" x:Name="txtIdUI" VerticalAlignment="Top" BorderBrush="DarkSlateGray" BorderThickness="1" AcceptsReturn="False">
+        <TextBox Height="43" Margin="0,140,26.556,0" x:Name="txtIdUI" VerticalAlignment="Top" BorderBrush="DarkSlateGray" BorderThickness="1" AcceptsReturn="False" HorizontalAlignment="Right" Width="528" FontSize="25">
             <TextBox.Effect>
                 <DropShadowEffect ShadowDepth="5" Color="DarkGreen" Opacity=".4" RenderingBias="Performance"  />
             </TextBox.Effect>
-            <TextBox.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="7"/>
-                </Style>
-            </TextBox.Resources>
+
         </TextBox>
-        <Label x:Name="LBC_Title" Content="LIBRARY BOOKING CO." HorizontalAlignment="Left" Margin="417,0,-0.444,0" VerticalAlignment="Top" Width="379" Height="81" Style="{StaticResource BebasKai}" FontSize="50" Foreground="DarkGreen">
+        <Label x:Name="LBC_Title" Content="LIBRARY BOOKING CO." HorizontalAlignment="Left" Margin="710,0,0,0" VerticalAlignment="Top" Width="379" Height="81" Style="{StaticResource BebasKai}" FontSize="50" Foreground="DarkGreen">
             <Label.BitmapEffect>
                 <DropShadowBitmapEffect Color="DarkGreen" Direction="320" ShadowDepth="10" Opacity=".5" Softness="9" />
             </Label.BitmapEffect>
         </Label>
-        <TextBox Height="29" Margin="394,217,26.556,0" x:Name="txtPasswordUI" VerticalAlignment="Top" BorderBrush="DarkSlateGray" BorderThickness="1" AcceptsReturn="False">
-            <TextBox.Resources>
+        <PasswordBox Height="43" Margin="561,239,26.556,0" x:Name="txtPasswordUI" VerticalAlignment="Top" BorderBrush="DarkSlateGray" BorderThickness="1" Width="528" FontSize="25">
+            <PasswordBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="7"/>
                 </Style>
-            </TextBox.Resources>
-            <TextBox.Effect>
+            </PasswordBox.Resources>
+            <PasswordBox.Effect>
                 <DropShadowEffect ShadowDepth="5" Color="DarkGreen" Opacity=".4" RenderingBias="Performance"  />
-            </TextBox.Effect>
-        </TextBox>
-        <Label Content="Library ID" HorizontalAlignment="Left" Height="29" Margin="394,111,0,0" VerticalAlignment="Top" Width="176" Style="{StaticResource Jost}" FontSize="15"/>
-        <Label Content="Password" HorizontalAlignment="Left" Height="29" Margin="394,188,0,0" VerticalAlignment="Top" Width="176" Style="{StaticResource Jost}" FontSize="15"/>
-        <Button x:Name="btnLogIn" Content="Log In" HorizontalAlignment="Left" Margin="515,287,0,0" VerticalAlignment="Top" Width="133" Height="46" BorderBrush="DarkGreen" Background="DarkSeaGreen" BorderThickness="0" Foreground="DarkSlateGray" Click="btnLogIn_Click">
+            </PasswordBox.Effect>
+        </PasswordBox>
+        <Label Content="Library ID" HorizontalAlignment="Left" Height="29" Margin="561,111,0,0" VerticalAlignment="Top" Width="176" Style="{StaticResource Jost}" FontSize="15"/>
+        <Label Content="Password" HorizontalAlignment="Left" Height="29" Margin="561,205,0,0" VerticalAlignment="Top" Width="176" Style="{StaticResource Jost}" FontSize="15"/>
+        <Button x:Name="btnLogIn" Content="Log In" HorizontalAlignment="Left" Margin="755,344,0,0" VerticalAlignment="Top" Width="133" Height="46" BorderBrush="DarkGreen" Background="DarkSeaGreen" BorderThickness="0" Foreground="DarkSlateGray" Click="btnLogIn_Click">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"/>
@@ -49,8 +47,22 @@
             <Button.Effect>
                 <DropShadowEffect ShadowDepth="5" Color="DarkGreen" Opacity=".4" RenderingBias="Performance"  />
             </Button.Effect>
-            
+
         </Button>
+        <Image HorizontalAlignment="Left" Height="59" Margin="1016,631,0,0" VerticalAlignment="Top" Width="73">
+            <Image.Source>
+                <BitmapImage  UriSource="D:\Library System April 2023\Library Booking Co\Library Booking Co\bin\Debug\InfoIcon.png"/>
+            </Image.Source>
+            <Image.ToolTip>
+                <ToolTip>
+                    <StackPanel>
+                        <Label Content="If you do not have or have forgotten your"/>
+                        <Label Content="details, please contact library staff."/>
+                    </StackPanel>
+                </ToolTip>
+            </Image.ToolTip>
+
+        </Image>
     </Grid>
 
 </Window>

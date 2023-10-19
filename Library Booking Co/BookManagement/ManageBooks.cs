@@ -21,6 +21,7 @@ namespace Library_Booking_Co
             DateTime retunBy_DT = DOI_DT.AddDays(21); //Adds 21 days to today's date (3 weeks)
 
             string available = "";
+            int BoorrowedCount = 0;
             XmlDocument book_doc = new XmlDocument();
             book_doc.Load(@"BookInventory.xml");
 
@@ -29,6 +30,7 @@ namespace Library_Booking_Co
 
             XmlNode borrBook = book_doc.SelectSingleNode("//book[ID='" + book + "']");
             available = borrBook.ChildNodes.Item(9).InnerText;
+            BoorrowedCount =Convert.ToInt32( borrBook.ChildNodes.Item(10).InnerText);
 
             //JAMES CODE
             //XmlDocument jDoc = new XmlDocument();
@@ -44,10 +46,17 @@ namespace Library_Booking_Co
 
             int maxBookCount = count;
 
+
+                    string Title = borrBook.ChildNodes.Item(1).InnerText;
+                    string Author = borrBook.ChildNodes.Item(0).InnerText;
+
             if (maxBookCount < 3)
             {
                 if (available.Equals("true"))
                 {
+                    int AddToCount = BoorrowedCount + 1;
+                    borrBook.ChildNodes.Item(10).InnerText = AddToCount.ToString();
+
                     borrBook.ChildNodes.Item(9).InnerText = "false"; //Changes text in "available" to false
                     newBorrowedBook.ID = book;
                     newBorrowedBook.dateOfIssue = DOI_DT.ToShortDateString();
@@ -56,10 +65,28 @@ namespace Library_Booking_Co
                     book_doc.Save(@"BookInventory.xml");
 
 
+                    MessageBox.Show(""+Title+" by " +Author+ " has been booked out.\nThe books should be returned by " + retunBy_DT.ToShortDateString());
+
+
                 }
                 else
                 {
-                    MessageBox.Show("This book is currently on loan. Please double check and try again");
+                    // MessageBox.Show("This book is currently on loan. Please double check and try again");
+                    // shows choice if they want to reserve book
+
+                    if (MessageBox.Show("" + Title + " by " + Author + " is currently on loan.\n Would you like to reserve this book?", "", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                    {
+                        ManageBooks RenewB = new ManageBooks();
+                        RenewB.ReserveBook(book, user);
+                        MessageBox.Show("" + Title + " by " + Author + " has been reverved.");
+
+                    }
+                    else
+                    {
+                        // Nothing happens 
+
+
+                    }
 
 
                 }
@@ -97,6 +124,9 @@ namespace Library_Booking_Co
                 borrBook.ChildNodes.Item(9).InnerText = "true";
                 book_doc.Save(@"BookInventory.xml");
                 conn.retunBook(user, book, newBorrowedBook);
+                string Title = borrBook.ChildNodes.Item(1).InnerText;
+                string Author = borrBook.ChildNodes.Item(0).InnerText;
+                MessageBox.Show("" + Title + " by " + Author + " has been returned ");
 
             }
 
@@ -114,7 +144,7 @@ namespace Library_Booking_Co
 
             //XmlNode borrBook = book_doc.SelectSingleNode("//book[ID='" + book + "']");
 
-            //JAMES CODE
+            
 
             var results = new Dictionary<int, int>();
             int count = 0;
@@ -141,7 +171,61 @@ namespace Library_Booking_Co
             }
 
 
+
+
         }
+
+        public void RenewBook(string book, string user)
+        {
+            // checks id of book exists within user
+            // adds 2 weeks to returnByDate
+            var todayDate = DateTime.Today;
+            DateTime RetBy = new DateTime();
+
+
+            XmlDocument user_doc = new XmlDocument();
+            user_doc.Load(@"LibraryUsers.xml");
+
+            XmlDocument book_doc = new XmlDocument();
+            book_doc.Load(@"BookInventory.xml");
+
+            XmlNode borrBook = book_doc.SelectSingleNode("//book[ID='" + book + "']");
+
+            XmlNode nodes = user_doc.SelectSingleNode("/libraryMembers/user[ID='" + user + "']/borrowedBooks/book[ID='" + book + "']");
+            string rawRTBY = nodes.ChildNodes.Item(2).InnerText;
+            RetBy = DateTime.ParseExact(rawRTBY, "dd/MM/yyyy", null);
+
+            string Title = borrBook.ChildNodes.Item(1).InnerText;
+            string Author = borrBook.ChildNodes.Item(0).InnerText;
+
+
+            if (nodes == null)
+            {
+                MessageBox.Show("This book is not currently loaned by user");
+            }
+            else
+            {
+
+                DateTime newReturnDate = RetBy.AddDays(14); //adds 2 weeks to original duedate
+
+
+                nodes.ChildNodes.Item(2).InnerText = newReturnDate.ToShortDateString();
+                user_doc.Save(@"LibraryUsers.xml");
+                MessageBox.Show("" + Title + " by " + Author + " has been renewed.\nThe books should be returned by " + newReturnDate.ToShortDateString());
+
+
+            }
+
+        }
+
+
+
+
+
+
+
+
+
     }
 }
 
