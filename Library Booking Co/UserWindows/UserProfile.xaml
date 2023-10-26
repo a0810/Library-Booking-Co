@@ -1,0 +1,60 @@
+﻿<Window x:Class="Library_Booking_Co.UserWindows.UserProfile"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Library_Booking_Co.UserWindows"
+        mc:Ignorable="d"
+        Title="UserProfile" Width="{x:Static SystemParameters.PrimaryScreenWidth}"  
+        Height="{x:Static SystemParameters.PrimaryScreenHeight}"  WindowState="Maximized">
+    <Grid>
+        <Image Margin="0,0,-0.444,-0.333" Opacity="0.30" Stretch="Fill">
+            <Image.Source>
+                <BitmapImage  UriSource="D:\Library System April 2023\Library Booking Co\Library Booking Co\bin\Debug\gradient_green_left.png" />
+            </Image.Source>
+        </Image>
+        <Image HorizontalAlignment="Left" Height="148" Margin="69,112,0,0" VerticalAlignment="Top" Width="146">
+            <Image.Source>
+                <BitmapImage  UriSource="D:\Library System April 2023\Library Booking Co\Library Booking Co\bin\Debug\UserPPIcon.png" />
+            </Image.Source>
+        </Image>
+        <Label x:Name="lblFirstSurname" Content="Name LastName" HorizontalAlignment="Left" Height="40" Margin="215,133,0,0" VerticalAlignment="Top" Width="354" FontFamily="Microsoft YaHei" FontSize="18" FontWeight="Bold"/>
+        <Label x:Name="lblID" Content="ID: 00000000000" HorizontalAlignment="Left" Height="39" Margin="215,173,0,0" VerticalAlignment="Top" Width="268" FontSize="14" FontFamily="Microsoft JhengHei"/>
+        <Label x:Name="lblMS" Content="Member Since: xx/xx/xxxx" HorizontalAlignment="Left" Height="43" Margin="69,282,0,0" VerticalAlignment="Top" Width="414" FontSize="14" FontFamily="Microsoft JhengHei"/>
+        <Label Content="Contact Details" HorizontalAlignment="Left" Height="43" Margin="69,330,0,0" VerticalAlignment="Top" Width="414" FontSize="18" FontFamily="Microsoft JhengHei" FontWeight="Bold"/>
+        <Label x:Name="lblEmail" Content="Email:" HorizontalAlignment="Left" Height="43" Margin="69,378,0,0" VerticalAlignment="Top" Width="414" FontSize="14" FontFamily="Microsoft JhengHei"/>
+        <Label x:Name="lblPhone" Content="Phone:" HorizontalAlignment="Left" Height="43" Margin="69,426,0,0" VerticalAlignment="Top" Width="414" FontSize="14" FontFamily="Microsoft JhengHei"/>
+        <TextBlock x:Name="lblAddress" HorizontalAlignment="Left" Height="197" Margin="69,474,0,0" VerticalAlignment="Top" Width="414" FontSize="14" FontFamily="Microsoft JhengHei" RenderTransformOrigin="0.5,0.5" TextWrapping="WrapWithOverflow"><Run Text="Address"/><Run Text=":"/></TextBlock>
+        <Button x:Name="btnEmail" Content="Edit" HorizontalAlignment="Left" Height="27" Margin="488,380,0,0" VerticalAlignment="Top" Width="89" FontFamily="Microsoft PhagsPa" RenderTransformOrigin="0.501,0.235" Background="Transparent" BorderThickness="0" Click="btnEmail_Click"/>
+        <Button x:Name="btnPhone" Content="Edit" HorizontalAlignment="Left" Height="27" Margin="488,428,0,0" VerticalAlignment="Top" Width="89" FontFamily="Microsoft PhagsPa" RenderTransformOrigin="0.501,0.235" Background="Transparent" BorderThickness="0" Click="btnPhone_Click"/>
+        <Button x:Name="btnAddress" Content="Edit" HorizontalAlignment="Left" Height="27" Margin="488,509,0,0" VerticalAlignment="Top" Width="89" FontFamily="Microsoft PhagsPa" RenderTransformOrigin="0.501,0.235" Background="Transparent" BorderThickness="0" Click="btnAddress_Click"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="141" Margin="702,133,0,0" VerticalAlignment="Top" Width="380"/>
+        <Label x:Name="lblBalance" Content="Balance:" HorizontalAlignment="Left" Height="49" Margin="728,173,0,0" VerticalAlignment="Top" Width="317" FontSize="20" FontFamily="Microsoft JhengHei UI" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Button x:Name="btnChangePassword" Content="Change Password" HorizontalAlignment="Left" Height="36" Margin="738,398,0,0" VerticalAlignment="Top" Width="307" FontSize="14" FontFamily="Microsoft JhengHei UI" Background="#5c5c55" Foreground="White" Click="btnChangePassword_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+            <Button.Effect>
+                <DropShadowEffect ShadowDepth="5" Color="DarkGreen" Opacity=".4" RenderingBias="Performance"  />
+            </Button.Effect>
+        </Button>
+        <Button x:Name="btnHome" HorizontalAlignment="Left" Height="66" Margin="1027,0,-0.444,0" VerticalAlignment="Top" Width="89" BorderThickness="0" Click="btnHome_Click_1">
+            <Image Source="D:\Library System April 2023\Library Booking Co\Library Booking Co\bin\Debug\Home.png"></Image>
+
+            <Button.Background>
+                <SolidColorBrush Opacity="0.0"/>
+            </Button.Background>
+            <Button.ToolTip>
+                <ToolTip>
+                    <StackPanel>
+                        <Label Content="Home Page"/>
+                    </StackPanel>
+                </ToolTip>
+            </Button.ToolTip>
+        </Button>
+
+
+    </Grid>
+</Window>

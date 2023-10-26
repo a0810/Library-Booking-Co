@@ -1,0 +1,118 @@
+﻿<Window x:Class="Library_Booking_Co.StaffWindows.StaffUserFines"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Library_Booking_Co.StaffWindows"
+        mc:Ignorable="d"
+        Title="StaffUserFines" Width="{x:Static SystemParameters.PrimaryScreenWidth}"  
+        Height="{x:Static SystemParameters.PrimaryScreenHeight}"  WindowState="Maximized">
+    <Grid>
+
+        <TabControl TabStripPlacement="Left" Margin="0,0,-0.444,-0.333" SelectionChanged="TabControl_SelectionChanged" Background="#AED581">
+            <TabItem Header="OVERDUE BOOKS" HorizontalAlignment="Left" Margin="-2,-2,-18.889,0" Width="228" Height="58" VerticalAlignment="Top" FontSize="20" FontFamily="Microsoft YaHei Light" >
+                <TabItem.Style>
+                    <Style TargetType="TabItem">
+                        <Setter Property="Background" >
+                            <Setter.Value>
+                                <LinearGradientBrush  StartPoint="0,0" EndPoint="0,1" Opacity="1">
+                                    <!-- <GradientStop Color="#7cb342" Offset="0"/>-->
+                                    <GradientStop Color="#aed581" Offset="0.25"/>
+                                    <GradientStop Color="#7cb342" Offset="0.80"/>
+                                </LinearGradientBrush>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </TabItem.Style>
+                <Grid Background="White">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="0*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Image Margin="0,0,-0.444,-0.333" Opacity="0.25" Stretch="Fill">
+                        <Image.Source>
+                            <BitmapImage  UriSource="D:\Library System April 2023\Library Booking Co\Library Booking Co\bin\Debug\gradient_green_down.png" />
+                        </Image.Source>
+                    </Image>
+                    <DataGrid x:Name="dgViewFines" HorizontalAlignment="Left" Height="594" VerticalAlignment="Top" Width="860" Margin="10,110,0,0" Background="Transparent" SelectionChanged="dgViewFines_SelectionChanged" DataContext ="{Binding Fine}" IsReadOnly="True" ColumnWidth="*"/>
+                    <Label Content="Overdue Books" HorizontalAlignment="Left" Height="73" Margin="10,32,0,0" VerticalAlignment="Top" Width="437" FontSize="40" FontFamily="Microsoft JhengHei UI Light"/>
+                    <Button HorizontalAlignment="Left" Height="73" Margin="1005,10,0,0" VerticalAlignment="Top" Width="101" BorderThickness="0" Click="Button_Click">
+                        <Image Source="D:\Library System April 2023\Library Booking Co\Library Booking Co\bin\Debug\Home.png"></Image>
+                        <Button.Background>
+                            <SolidColorBrush Opacity="0.0"/>
+                        </Button.Background>
+                        <Button.ToolTip>
+                            <ToolTip>
+                                <StackPanel>
+                                    <Label Content="Home Page"/>
+                                </StackPanel>
+                            </ToolTip>
+                        </Button.ToolTip>
+                    </Button>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="MANAGE FINES" Height="58" Margin="-2,-2.222,0.444,-11.778" VerticalAlignment="Top" FontFamily="Microsoft YaHei Light" FontSize="20">
+                <TabItem.Style>
+                    <Style TargetType="TabItem">
+                        <Setter Property="Background" >
+                            <Setter.Value>
+                                <LinearGradientBrush  StartPoint="0,0" EndPoint="0,1" Opacity="1">
+                                    <!-- <GradientStop Color="#7cb342" Offset="0"/>-->
+                                    <GradientStop Color="#aed581" Offset="0.25"/>
+                                    <GradientStop Color="#7cb342" Offset="0.80"/>
+                                </LinearGradientBrush>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </TabItem.Style>
+                <Grid Background="White">
+                    <Image Margin="0,0,-0.444,-0.333" Opacity="0.15" Stretch="Fill">
+                        <Image.Source>
+                            <BitmapImage  UriSource="D:\Library System April 2023\Library Booking Co\Library Booking Co\bin\Debug\gradient_green_down.png" />
+                        </Image.Source>
+                    </Image>
+                    <TextBox Height="55" Margin="188,281,199.444,0" x:Name="txtFineID" VerticalAlignment="Top" BorderBrush="DarkSlateGray" BorderThickness="1" FontSize="28" AcceptsReturn="False">
+                        <TextBox.Effect>
+                            <DropShadowEffect ShadowDepth="5" Color="DarkGreen" Opacity=".4" RenderingBias="Performance"  />
+                        </TextBox.Effect>
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="7"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                    <Label Content="Enter User ID" HorizontalAlignment="Left" Height="35" Margin="145,241,0,0" VerticalAlignment="Top" Width="188" FontFamily="Microsoft JhengHei" FontSize="22"/>
+                    <Label Content="Manage fines" HorizontalAlignment="Left" Height="51" Margin="10,10,0,0" VerticalAlignment="Top" Width="288" FontSize="30"/>
+                    <Button x:Name="btnGoFines" Content="GO" HorizontalAlignment="Left" Margin="340,387,0,0" VerticalAlignment="Top" Width="185" Height="52" BorderBrush="#0c2205" Background="#0c2205" BorderThickness="0" Foreground="White" Click="btnGoFines_Click" >
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                        <Button.Effect>
+                            <DropShadowEffect ShadowDepth="5" Color="DarkGreen" Opacity=".4" RenderingBias="Performance"  />
+                        </Button.Effect>
+                    </Button>
+
+                </Grid>
+
+            </TabItem>
+        </TabControl>
+        <Button x:Name="btnHome" HorizontalAlignment="Left" Height="69" Margin="66,620,0,0" VerticalAlignment="Top" Width="75" BorderThickness="0" Click="btnHome_Click">
+            <Image Source="D:\Library System April 2023\Library Booking Co\Library Booking Co\bin\Debug\Home.png"></Image>
+            <Button.Background>
+                <SolidColorBrush Opacity="0.0"/>
+            </Button.Background>
+            <Button.ToolTip>
+                <ToolTip>
+                    <StackPanel>
+                        <Label Content="Home Page"/>
+                    </StackPanel>
+                </ToolTip>
+            </Button.ToolTip>
+        </Button>
+
+    </Grid>
+</Window>

@@ -21,7 +21,7 @@ namespace Library_Booking_Co
 
             if (nodes == null)
             {
-                MessageBox.Show("Incorrect ID or Password");
+               
 
             }
             else
@@ -37,7 +37,6 @@ namespace Library_Booking_Co
                 }
                 else
                 {
-                    MessageBox.Show("Incorrect ID or Password");
 
                 }
             }
@@ -48,7 +47,43 @@ namespace Library_Booking_Co
 
         }
 
-        
+        public bool StaffLogIn(string StID, string Password)
+        {
+            bool LogInSuccessful = false;
+
+            XmlDocument doc = new XmlDocument();
+            doc.Load(@"Staff.xml");
+            XmlNode nodes = doc.SelectSingleNode("/staffMembers/staff[ID='" + StID + "']");
+
+            if (nodes == null)
+            {
+             
+
+            }
+            else
+            {
+                string UserID = nodes.ChildNodes.Item(2).InnerText;
+                string UserPword = nodes.ChildNodes.Item(3).InnerText;
+                if (StID == UserID && Password == UserPword)
+                {
+                    LogInSuccessful = true;
+
+
+
+                }
+                else
+                {
+
+                }
+            }
+            return LogInSuccessful;
+
+
+
+
+        }
+
+
         internal void UserLogin()
         {
             throw new NotImplementedException();

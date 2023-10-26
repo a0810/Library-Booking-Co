@@ -80,6 +80,21 @@ namespace Library_Booking_Co
 
         }
 
+        public void displayBorrowedBook(string iD, BorrowedBook newDisplayBook)
+        {
+            XmlDocument user_doc = new XmlDocument();
+            user_doc.Load(@"LibraryUsers.xml");
+            var results = new Dictionary<int, int>();
+            int count = 0;
+            foreach (XmlNode books in user_doc.SelectNodes("/libraryMembers/user[ID='" + iD + "']/borrowedBooks"))
+            {
+                
+                count = books.SelectNodes("*").Count;
+                
+            }
+
+        }
+
 
     }
 }

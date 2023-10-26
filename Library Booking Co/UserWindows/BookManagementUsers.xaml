@@ -5,20 +5,60 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Library_Booking_Co.UserWindows"
         mc:Ignorable="d"
-        Title="BookManagementUsers" Height="450" Width="800">
+        Title="BookManagementUsers" Width="{x:Static SystemParameters.PrimaryScreenWidth}"  
+        Height="{x:Static SystemParameters.PrimaryScreenHeight}"  WindowState="Maximized">
     <Grid>
-        <TabControl TabStripPlacement="Left" Margin="0,0,-0.444,-0.333" SelectionChanged="TabControl_SelectionChanged" >
-            <TabItem Header="Books" HorizontalAlignment="Left" Margin="-2,-2,0,-12" Width="164" Height="38" VerticalAlignment="Top">
-                <Grid Background="White"/>
+        <TabControl TabStripPlacement="Left" Margin="0,0,-0.444,-0.333" SelectionChanged="TabControl_SelectionChanged" Background="#AED581">
+            <TabItem Header="Books" HorizontalAlignment="Left" Margin="-2,-2,-18.889,0" Width="228" Height="58" VerticalAlignment="Top" FontSize="20" FontFamily="Microsoft YaHei Light" >
+                <TabItem.Style>
+                    <Style TargetType="TabItem">
+                        <Setter Property="Background" >
+                            <Setter.Value>
+                                <LinearGradientBrush  StartPoint="0,0" EndPoint="0,1" Opacity="1">
+                                    <!-- <GradientStop Color="#7cb342" Offset="0"/>-->
+                                    <GradientStop Color="#aed581" Offset="0.25"/>
+                                    <GradientStop Color="#7cb342" Offset="0.80"/>
+                                </LinearGradientBrush>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </TabItem.Style>
+                <Grid Background="White">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="525" Margin="62,95,0,0" VerticalAlignment="Top" Width="337"/>
+                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="525" Margin="494,95,0,0" VerticalAlignment="Top" Width="341"/>
+                    <DataGrid x:Name="dgBorrowedBooks" HorizontalAlignment="Left" Margin="69,176,0,0" Width="324" Height="423" VerticalAlignment="Top" Background="Transparent" BorderThickness="0" IsReadOnly="True" ColumnWidth="*">
+                    
+                    </DataGrid>
+                    <Label Content="Currently Borrowed &#xA;              Books" HorizontalAlignment="Left" Height="85" Margin="98,103,0,0" VerticalAlignment="Top" Width="284" FontFamily="Microsoft JhengHei UI" FontSize="25" />
+                    <Label Content="Currently Reserved&#xA;              Books" HorizontalAlignment="Left" Height="85" Margin="543,103,0,0" VerticalAlignment="Top" Width="284" FontFamily="Microsoft JhengHei UI" FontSize="25" />
+
+                    <DataGrid x:Name="dgReservedBooks" HorizontalAlignment="Left" Height="423" Margin="503,176,0,0" VerticalAlignment="Top" Width="324" Background="Transparent" BorderThickness="0" IsReadOnly="True"  ColumnWidth="*"/>
+                </Grid>
             </TabItem>
-            <TabItem Header="Borrow" Height="38" Margin="-2,-2.222,0.444,-11.778" VerticalAlignment="Top">
+            <TabItem Header="Borrow" Height="58" Margin="-2,-2.222,0.444,-11.778" VerticalAlignment="Top" FontFamily="Microsoft YaHei Light" FontSize="20">
+                <TabItem.Style>
+                    <Style TargetType="TabItem">
+                        <Setter Property="Background" >
+                            <Setter.Value>
+                                <LinearGradientBrush  StartPoint="0,0" EndPoint="0,1" Opacity="1">
+                                    <!-- <GradientStop Color="#7cb342" Offset="0"/>-->
+                                    <GradientStop Color="#aed581" Offset="0.25"/>
+                                    <GradientStop Color="#7cb342" Offset="0.80"/>
+                                </LinearGradientBrush>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </TabItem.Style>
                 <Grid Background="White">
                     <Image Margin="0,0,-0.444,-0.333" Opacity="0.15" Stretch="Fill">
                         <Image.Source>
                             <BitmapImage  UriSource="D:\Library System April 2023\Library Booking Co\Library Booking Co\bin\Debug\gradient_green_down.png" />
                         </Image.Source>
                     </Image>
-                    <TextBox Height="33" Margin="176,143,162,0" x:Name="txtBorrowBook" VerticalAlignment="Top" BorderBrush="DarkSlateGray" BorderThickness="1" AcceptsReturn="False">
+                    <TextBox Height="54" Margin="176,223,257,0" x:Name="txtBorrowBook" VerticalAlignment="Top" BorderBrush="DarkSlateGray" BorderThickness="1" AcceptsReturn="False" TextChanged="txtBorrowBook_TextChanged" FontSize="30">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="7"/>
@@ -28,7 +68,7 @@
                             <DropShadowEffect ShadowDepth="5" Color="DarkGreen" Opacity=".4" RenderingBias="Performance"  />
                         </TextBox.Effect>
                     </TextBox>
-                    <Button x:Name="btnBorrowBook" Content="Borrow" HorizontalAlignment="Left" Margin="255,204,0,0" VerticalAlignment="Top" Width="117" Height="38" BorderBrush="DarkSlateGray" Background="DarkSlateGray" BorderThickness="0" Foreground="White" Click="btnBorrowBook_Click">
+                    <Button x:Name="btnBorrowBook" Content="Borrow" HorizontalAlignment="Left" Margin="324,335,0,0" VerticalAlignment="Top" Width="187" Height="60" BorderBrush="DarkSlateGray" Background="DarkSlateGray" BorderThickness="0" Foreground="White" Click="btnBorrowBook_Click" FontSize="20">
                         <Button.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="5"/>
@@ -37,13 +77,25 @@
                         <Button.Effect>
                             <DropShadowEffect ShadowDepth="5" Color="DarkGreen" Opacity=".4" RenderingBias="Performance"  />
                         </Button.Effect>
-
                     </Button>
-                    <Label Content="Scan or enter Book ID" HorizontalAlignment="Left" Height="28" Margin="176,110,0,0" VerticalAlignment="Top" Width="146"/>
+                    <Label Content="Scan or enter Book ID" HorizontalAlignment="Left" Height="28" Margin="176,190,0,0" VerticalAlignment="Top" Width="201" FontFamily="Global Sans Serif" FontSize="19"/>
                 </Grid>
 
             </TabItem>
-            <TabItem Header="Return" Height="38" Margin="-2,-2,0.444,-12" VerticalAlignment="Top" >
+            <TabItem Header="Return" Height="58" Margin="-2,-2,0.444,-12" VerticalAlignment="Top" FontFamily="Microsoft YaHei Light" FontSize="20" >
+                <TabItem.Style>
+                    <Style TargetType="TabItem">
+                        <Setter Property="Background" >
+                            <Setter.Value>
+                                <LinearGradientBrush  StartPoint="0,0" EndPoint="0,1" Opacity="1">
+                                    <!-- <GradientStop Color="#7cb342" Offset="0"/>-->
+                                    <GradientStop Color="#aed581" Offset="0.25"/>
+                                    <GradientStop Color="#7cb342" Offset="0.80"/>
+                                </LinearGradientBrush>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </TabItem.Style>
                 <Grid Background="White">
                     <Image Margin="0,0,-0.444,-0.333" Opacity="0.15" Stretch="Fill">
                         <Image.Source>
@@ -51,7 +103,7 @@
                         </Image.Source>
                     </Image>
 
-                    <TextBox Height="33" Margin="176,143,162,0" x:Name="txtReturnBook" VerticalAlignment="Top" BorderBrush="DarkSlateGray" BorderThickness="1" AcceptsReturn="False">
+                    <TextBox Height="54" Margin="176,223,257,0" x:Name="txtReturnBook" VerticalAlignment="Top" BorderBrush="DarkSlateGray" BorderThickness="1" AcceptsReturn="False" FontSize="30">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="7"/>
@@ -61,7 +113,7 @@
                             <DropShadowEffect ShadowDepth="5" Color="DarkGreen" Opacity=".4" RenderingBias="Performance" />
                         </TextBox.Effect>
                     </TextBox>
-                    <Button x:Name="btnReturnBook" Content="Return" HorizontalAlignment="Left" Margin="255,204,0,0" VerticalAlignment="Top" Width="117" Height="38" BorderBrush="DarkSlateGray" Background="DarkSlateGray" BorderThickness="0" Foreground="White" Click="btnReturnBook_Click">
+                    <Button x:Name="btnReturnBook" Content="Return" HorizontalAlignment="Left" Margin="324,335,0,0" VerticalAlignment="Top" Width="187" Height="60" BorderBrush="DarkSlateGray" Background="DarkSlateGray" BorderThickness="0" Foreground="White" Click="btnReturnBook_Click" FontSize="20">
                         <Button.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="5"/>
@@ -71,15 +123,66 @@
                             <DropShadowEffect ShadowDepth="5" Color="DarkGreen" Opacity=".4" RenderingBias="Performance"  />
                         </Button.Effect>
                     </Button>
-                    <Label Content="Scan or enter Book ID" HorizontalAlignment="Left" Height="28" Margin="176,110,0,0" VerticalAlignment="Top" Width="146"/>
+                    <Label Content="Scan or enter Book ID" HorizontalAlignment="Left" Height="28" Margin="176,190,0,0" VerticalAlignment="Top" Width="201" FontFamily="Global Sans Serif" FontSize="19"/>
 
                 </Grid>
             </TabItem>
-        
-            <TabItem Header="Renew" Height="38" Margin="-2,-1.778,0.444,-12.222" VerticalAlignment="Top" >
-                <Grid Background="White"/>
+
+            <TabItem Header="Renew" Height="58" Margin="-2,-1.778,0.444,-12.222" VerticalAlignment="Top" FontFamily="Microsoft JhengHei Light" FontSize="20" >
+                <TabItem.Style>
+                    <Style TargetType="TabItem">
+                        <Setter Property="Background" >
+                            <Setter.Value>
+                                <LinearGradientBrush  StartPoint="0,0" EndPoint="0,1" Opacity="1">
+                                    <!-- <GradientStop Color="#7cb342" Offset="0"/>-->
+                                    <GradientStop Color="#aed581" Offset="0.25"/>
+                                    <GradientStop Color="#7cb342" Offset="0.80"/>
+                                </LinearGradientBrush>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </TabItem.Style>
+                <Grid Background="White">
+                    <TextBox Height="54" Margin="176,223,257,0" x:Name="txtRenewBook" VerticalAlignment="Top" BorderBrush="DarkSlateGray" BorderThickness="1" AcceptsReturn="False" TextChanged="txtBorrowBook_TextChanged" FontSize="30">
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="7"/>
+                            </Style>
+                        </TextBox.Resources>
+                        <TextBox.Effect>
+                            <DropShadowEffect ShadowDepth="5" Color="DarkGreen" Opacity=".4" RenderingBias="Performance"  />
+                        </TextBox.Effect>
+                    </TextBox>
+                    <Button x:Name="btnRenewBook" Content="Renew" HorizontalAlignment="Left" Margin="324,335,0,0" VerticalAlignment="Top" Width="187" Height="60" BorderBrush="DarkSlateGray" Background="DarkSlateGray" BorderThickness="0" Foreground="White" FontSize="20" Click="btnRenewBook_Click">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                        <Button.Effect>
+                            <DropShadowEffect ShadowDepth="5" Color="DarkGreen" Opacity=".4" RenderingBias="Performance"  />
+                        </Button.Effect>
+                    </Button>
+                    <Label Content="Scan or enter Book ID" HorizontalAlignment="Left" Height="28" Margin="176,190,0,0" VerticalAlignment="Top" Width="201" FontFamily="Global Sans Serif" FontSize="19"/>
+
+                </Grid>
             </TabItem>
         </TabControl>
+        <Button x:Name="btnHome" HorizontalAlignment="Left" Height="70" Margin="63,612,0,0" VerticalAlignment="Top" Width="93" BorderThickness="0" Click="btnHome_Click">
+            <Image Source="D:\Library System April 2023\Library Booking Co\Library Booking Co\bin\Debug\Home.png"></Image>
+
+            <Button.Background>
+                <SolidColorBrush Opacity="0.0"/>
+            </Button.Background>
+            <Button.ToolTip>
+                <ToolTip>
+                    <StackPanel>
+                        <Label Content="Home Page"/>
+                    </StackPanel>
+                </ToolTip>
+            </Button.ToolTip>
+        </Button>
+
 
     </Grid>
 </Window>

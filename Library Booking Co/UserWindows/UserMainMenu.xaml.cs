@@ -24,11 +24,14 @@ namespace Library_Booking_Co.UserWindows
             InitializeComponent();
             
         }
-        MainWindow WindMain = new MainWindow();
-        BookManagementUsers BookManU = new BookManagementUsers();
+        
+       
+        
+        
 
         private void OnClick5(object sender, RoutedEventArgs e)
         {
+            MainWindow WindMain = new MainWindow();
             this.Hide();
             WindMain.Show();
 
@@ -37,9 +40,25 @@ namespace Library_Booking_Co.UserWindows
 
         private void btnBookManagement_Click(object sender, RoutedEventArgs e)
         {
+            BookManagementUsers BookManU = new BookManagementUsers();
             this.Hide();
             BookManU.Show();
 
+        }
+
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            BookSearchUser BooS = new BookSearchUser();
+            this.Hide();
+            BooS.Show();
+
+        }
+
+        private void btnProfile_Click(object sender, RoutedEventArgs e)
+        {
+            UserProfile UsP = new UserProfile();
+            this.Hide();
+            UsP.Show();
         }
     }
 }
